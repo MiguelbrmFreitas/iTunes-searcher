@@ -67,6 +67,6 @@ fun createItunesRepository(ItunesService: ItunesSearcherService): ItunesSearcher
     return ItunesSearcherRepositoryImpl(ItunesService)
 }
 
-fun createGetUsersUseCase(ItunesRepository: ItunesSearcherRepository): GetResultsUseCase {
+fun createGetResultsUseCase(ItunesRepository: ItunesSearcherRepository): GetResultsUseCase {
     return GetResultsUseCase(ItunesRepository)
 }
