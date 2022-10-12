@@ -5,7 +5,9 @@
 
     <data>
 
-
+        <variable
+            name="viewModel"
+            type="com.miguelbrmfreitas.itunes_searcher.ui.main.viewmodel.MainViewModel" />
 
     </data>
 
