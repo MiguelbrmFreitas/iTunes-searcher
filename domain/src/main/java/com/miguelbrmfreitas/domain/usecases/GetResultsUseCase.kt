@@ -1,4 +1,8 @@
 package com.miguelbrmfreitas.domain.usecases
 
-class GetResultsUseCase {
+import com.miguelbrmfreitas.domain.repository.ItunesSearcherRepository
+
+class GetResultsUseCase (private val repository: ItunesSearcherRepository)
+{
+    suspend operator fun invoke() = repository.getSearchResults()
 }

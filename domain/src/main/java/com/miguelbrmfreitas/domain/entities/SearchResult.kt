@@ -1,6 +1,6 @@
 package com.miguelbrmfreitas.domain.entities
 
-data class Result(
+data class SearchResult(
     val artistId: Int,
     val artistName: String,
     val artistViewUrl: String,

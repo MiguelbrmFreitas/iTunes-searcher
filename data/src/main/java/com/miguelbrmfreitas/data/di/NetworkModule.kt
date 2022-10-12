@@ -1,6 +1,10 @@
 package com.miguelbrmfreitas.data.di
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
+import com.miguelbrmfreitas.data.remote.ItunesSearcherRepositoryImpl
+import com.miguelbrmfreitas.data.remote.ItunesSearcherService
+import com.miguelbrmfreitas.domain.repository.ItunesSearcherRepository
+import com.miguelbrmfreitas.domain.usecases.GetResultsUseCase
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
@@ -12,10 +16,10 @@ import retrofit2.converter.scalars.ScalarsConverterFactory
 import java.util.concurrent.TimeUnit
 
 private const val TIME_OUT = 30L
-private const val BASE_URL = "https://itunes.apple.com/search"
+private const val BASE_URL = "https://itunes.apple.com/"
 
 val networkModule = module {
-//    single { createService(get()) }
+    single { createService(get()) }
 
     single { createRetrofit(get(), BASE_URL) }
 
@@ -55,14 +59,14 @@ fun createRetrofit(okHttpClient: OkHttpClient, url: String): Retrofit {
         .build()
 }
 
-//fun createService(retrofit: Retrofit): ItunesService {
-//    return retrofit.create(ItunesService::class.java)
-//}
-//
-//fun createItunesRepository(ItunesService: ItunesService): ItunesRepository {
-//    return ItunesRepositoryImpl(ItunesService)
-//}
-//
-//fun createGetUsersUseCase(ItunesRepository: ItunesRepository): GetUsersUserCase {
-//    return GetUsersUserCase(ItunesRepository)
-//}
+fun createService(retrofit: Retrofit): ItunesSearcherService {
+    return retrofit.create(ItunesSearcherService::class.java)
+}
+
+fun createItunesRepository(ItunesService: ItunesSearcherService): ItunesSearcherRepository {
+    return ItunesSearcherRepositoryImpl(ItunesService)
+}
+
+fun createGetUsersUseCase(ItunesRepository: ItunesSearcherRepository): GetResultsUseCase {
+    return GetResultsUseCase(ItunesRepository)
+}
