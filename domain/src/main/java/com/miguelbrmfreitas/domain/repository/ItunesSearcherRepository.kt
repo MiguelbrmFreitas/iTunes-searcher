@@ -4,5 +4,10 @@ import com.miguelbrmfreitas.domain.entities.SearchResult
 
 interface ItunesSearcherRepository
 {
-    suspend fun getSearchResults(): CustomResponse<List<SearchResult>>
+    suspend fun getSearchResults(
+        searchTerm: String,
+        mediaType: String,
+        entity: String,
+        limit: Int
+    ): CustomResponse<List<SearchResult>>
 }
