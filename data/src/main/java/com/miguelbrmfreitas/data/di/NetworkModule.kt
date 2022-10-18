@@ -1,8 +1,8 @@
 package com.miguelbrmfreitas.data.di
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
-import com.miguelbrmfreitas.data.remote.ItunesSearcherRepositoryImpl
-import com.miguelbrmfreitas.data.remote.ItunesSearcherService
+import com.miguelbrmfreitas.data.remote.repository.ItunesSearcherRepositoryImpl
+import com.miguelbrmfreitas.data.remote.api.ItunesSearcherService
 import com.miguelbrmfreitas.domain.repository.ItunesSearcherRepository
 import com.miguelbrmfreitas.domain.usecases.GetResultsUseCase
 import com.squareup.moshi.Moshi

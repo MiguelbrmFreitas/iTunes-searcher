@@ -1,11 +1,12 @@
-package com.miguelbrmfreitas.data.remote
+package com.miguelbrmfreitas.data.remote.repository
 
+import com.miguelbrmfreitas.data.remote.api.ItunesSearcherService
+import com.miguelbrmfreitas.data.remote.mappers.toDomainEntity
 import com.miguelbrmfreitas.domain.entities.SearchResult
 import com.miguelbrmfreitas.domain.repository.CustomResponse
 import com.miguelbrmfreitas.domain.repository.ItunesSearcherRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import retrofit2.http.Query
 import java.lang.Exception
 
 class ItunesSearcherRepositoryImpl (private val service: ItunesSearcherService) : ItunesSearcherRepository
@@ -21,8 +22,11 @@ class ItunesSearcherRepositoryImpl (private val service: ItunesSearcherService) 
             val response = service.getSearchResults(searchTerm, mediaType, entity, limit)
 
             if (response.isSuccessful) {
-                response.body()?.results?.let { searchResults ->
-                    return@withContext CustomResponse.Success(searchResults)
+                response.body()?.results?.let { searchResultsResponse ->
+                    val searchResultList = searchResultsResponse.map {
+                        it.toDomainEntity()
+                    }
+                    return@withContext CustomResponse.Success(searchResultList)
                 } ?: kotlin.run {
                     return@withContext CustomResponse.Failure(Exception(response.message()))
                 }
@@ -30,5 +34,4 @@ class ItunesSearcherRepositoryImpl (private val service: ItunesSearcherService) 
                 return@withContext CustomResponse.Failure(Exception(response.message()))
             }
         }
-
 }

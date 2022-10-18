@@ -17,7 +17,7 @@ class SearchResultViewHolder (
             artistName = searchResult.artistName
             trackName = searchResult.trackName
 
-            ivCover.load(searchResult.artworkUrl100) {
+            ivCover.load(searchResult.imageCoverUrl) {
                 placeholder(createCircularProgressDrawable(root.context))
                 error(R.drawable.ic_song_placeholder)
             }
