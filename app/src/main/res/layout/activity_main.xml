@@ -9,6 +9,8 @@
             name="viewModel"
             type="com.miguelbrmfreitas.itunes_searcher.ui.main.viewmodel.MainViewModel" />
 
+        <import type="android.view.View" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -39,10 +41,21 @@
                         android:layout_height="match_parent"
                         app:layout_constraintTop_toTopOf="parent"
                         android:background="@color/white"
-
+                        android:text="@={viewModel.mainViewModelState.searchTermText}"
                         />
 
                 </com.google.android.material.textfield.TextInputLayout>
+
+                <ImageButton
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:background="@drawable/ic_search_1"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="16dp"
+                    android:onClick="@{() -> viewModel.onSearchClicked()}"
+                    />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -62,16 +75,27 @@
                     android:id="@+id/recyclerView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginTop="16dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:bindRecycler="@{viewModel.mainViewModelState.recyclerSearchResults}"
+                    tools:listitem="@layout/item_search_result"
                     />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.core.widget.NestedScrollView>
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{viewModel.mainViewModelState.isProgressVisible? View.VISIBLE : View.GONE}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
