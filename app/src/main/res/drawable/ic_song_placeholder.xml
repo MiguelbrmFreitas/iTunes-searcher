@@ -1,0 +1,16 @@
+<!--
+ Source: https://www.svgrepo.com/svg/185950/hemidemisemiquaver-musical-notation
+ -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="512dp"
+    android:height="512dp"
+    android:viewportWidth="512"
+    android:viewportHeight="512">
+  <path
+      android:pathData="M332.8,76.8c-28.23,0 -51.2,-22.97 -51.2,-51.2C281.6,11.46 270.14,0 256,0c-14.14,0 -25.6,11.46 -25.6,25.6v311.29c-15.07,-8.02 -32.56,-12.63 -51.2,-12.63c-56.46,0 -102.4,42.11 -102.4,93.87S122.74,512 179.2,512s102.4,-42.11 102.4,-93.87v-303.91C296.67,122.97 314.15,128 332.8,128c28.23,0 51.2,22.97 51.2,51.2c0,14.14 11.46,25.6 25.6,25.6s25.6,-11.46 25.6,-25.6C435.2,122.74 389.26,76.8 332.8,76.8z"
+      android:fillColor="#77757F"/>
+  <path
+      android:pathData="M230.4,336.89c-15.07,-8.02 -32.56,-12.63 -51.2,-12.63c-56.46,0 -102.4,42.11 -102.4,93.87S122.74,512 179.2,512s102.4,-42.11 102.4,-93.87V256h-51.2V336.89z"
+      android:fillColor="#57575C"/>
+</vector>
