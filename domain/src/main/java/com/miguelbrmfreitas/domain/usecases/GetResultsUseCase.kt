@@ -5,12 +5,18 @@ import com.miguelbrmfreitas.domain.util.extensions.replaceSpaces
 
 class GetResultsUseCase (private val repository: ItunesSearcherRepository)
 {
+    companion object {
+        const val RESULTS_LIMIT = 50
+        const val MEDIA_TYPE = "music"
+        const val MEDIA_ENTITY = "song"
+    }
+
     suspend operator fun invoke
     (
         searchTerm: String,
-        mediaType: String = "music",
-        entity: String = "song",
-        limit: Int = 100
+        mediaType: String = MEDIA_TYPE,
+        entity: String = MEDIA_ENTITY,
+        limit: Int = RESULTS_LIMIT
     ) =
         repository.getSearchResults(
             searchTerm.replaceSpaces(),

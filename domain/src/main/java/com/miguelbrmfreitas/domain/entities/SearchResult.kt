@@ -10,5 +10,7 @@ data class SearchResult(
     val trackId: Int,
     val albumName: String,
     val releaseDate: Date,
-    val primaryGenreName: String
+    val formattedDate: String,
+    val primaryGenreName: String,
+    val formattedPrice: String
 )

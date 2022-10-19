@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">iTunes-searcher</string>
 
-    <string name="search_hint">Search for a song, artist or album…</string>
+    <string name="search_hint">Search for a track, artist or album…</string>
+
+    <string name="release_date_title">Release date: </string>
 </resources>

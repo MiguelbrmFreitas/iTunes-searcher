@@ -15,9 +15,8 @@ class MainViewModel(
 
     private val searchResultListAdapter by lazy { SearchResultAdapter() }
 
-
     override fun startView() {
-
+        mainViewModelState.searchTermText.value = ""
     }
 
     private fun getSearchResults(searchTerm: String) {
@@ -34,7 +33,6 @@ class MainViewModel(
                         }
 
                         searchResultListAdapter.searchResultList = searchResultsList
-
                     }
                 }
                 is CustomResponse.Failure -> {

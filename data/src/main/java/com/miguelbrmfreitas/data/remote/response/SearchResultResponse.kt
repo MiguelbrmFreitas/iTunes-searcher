@@ -12,5 +12,6 @@ data class SearchResultResponse(
     @Json(name="collectionName")
     val albumName: String,
     val releaseDate: String,
-    val primaryGenreName: String
+    val primaryGenreName: String,
+    val trackPrice: Double
 )
