@@ -7,5 +7,6 @@ data class MainViewModelState(
     val isProgressVisible: MutableStateFlow<Boolean> = MutableStateFlow(false),
     val recyclerSearchResults: MutableStateFlow<RecyclerComponent> = MutableStateFlow(RecyclerComponent()),
     val searchTermText: MutableStateFlow<String> = MutableStateFlow(""),
-    val hasToShowBottomSheet: MutableStateFlow<Boolean> = MutableStateFlow(false)
+    val hasToShowBottomSheet: MutableStateFlow<Boolean> = MutableStateFlow(false),
+    val isRecyclerVisible: MutableStateFlow<Boolean> = MutableStateFlow(false)
 )

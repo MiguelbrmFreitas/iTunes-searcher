@@ -18,6 +18,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_marginTop="@dimen/margin_default"
         >
 
         <ImageView
@@ -29,6 +31,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:src="@drawable/ic_song_placeholder"
+            android:layout_marginStart="@dimen/half_margin_default"
             />
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -38,7 +41,7 @@
             app:layout_constraintStart_toEndOf="@id/iv_cover"
             app:layout_constraintTop_toTopOf="@id/iv_cover"
             app:layout_constraintBottom_toBottomOf="@id/iv_cover"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="@dimen/half_margin_default"
             >
 
             <TextView

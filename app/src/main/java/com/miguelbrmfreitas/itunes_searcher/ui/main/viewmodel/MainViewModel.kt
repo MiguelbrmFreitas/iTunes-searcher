@@ -35,6 +35,7 @@ class MainViewModel(
                             )
 
                             isProgressVisible.value = false
+                            isRecyclerVisible.value = true
                         }
 
                         searchResultListAdapter.searchResultList = searchResultsList
@@ -42,6 +43,8 @@ class MainViewModel(
                 }
                 is CustomResponse.Failure -> {
                     mainViewModelState.isProgressVisible.value = false
+
+                    //TODO: Implement error handling
                 }
             }
 
@@ -54,6 +57,7 @@ class MainViewModel(
 
             if (searchTerm.isNotEmpty()) {
                 isProgressVisible.value = true
+                isRecyclerVisible.value = false
                 getSearchResults(searchTerm)
             }
         }

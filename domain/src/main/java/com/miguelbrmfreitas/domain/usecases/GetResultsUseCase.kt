@@ -6,7 +6,7 @@ import com.miguelbrmfreitas.domain.util.extensions.replaceSpaces
 class GetResultsUseCase (private val repository: ItunesSearcherRepository)
 {
     companion object {
-        const val RESULTS_LIMIT = 50
+        const val RESULTS_LIMIT = 30
         const val MEDIA_TYPE = "music"
         const val MEDIA_ENTITY = "song"
     }
