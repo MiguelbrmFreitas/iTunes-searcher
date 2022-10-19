@@ -8,8 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.miguelbrmfreitas.domain.entities.SearchResult
 import com.miguelbrmfreitas.itunes_searcher.R
 import com.miguelbrmfreitas.itunes_searcher.databinding.ItemSearchResultBinding
+import com.miguelbrmfreitas.itunes_searcher.ui.main.listeners.IResultClickListener
 
-class SearchResultAdapter : RecyclerView.Adapter<SearchResultViewHolder>()
+class SearchResultAdapter(private val clicklistener: IResultClickListener) : RecyclerView.Adapter<SearchResultViewHolder>()
 {
     var searchResultList = emptyList<SearchResult>()
         set(value) {
@@ -28,7 +29,7 @@ class SearchResultAdapter : RecyclerView.Adapter<SearchResultViewHolder>()
             false
         )
 
-        return SearchResultViewHolder(view)
+        return SearchResultViewHolder(view, clicklistener)
     }
 
     override fun onBindViewHolder(holder: SearchResultViewHolder, position: Int) {

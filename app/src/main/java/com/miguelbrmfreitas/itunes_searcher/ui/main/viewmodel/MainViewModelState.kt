@@ -6,5 +6,6 @@ import kotlinx.coroutines.flow.MutableStateFlow
 data class MainViewModelState(
     val isProgressVisible: MutableStateFlow<Boolean> = MutableStateFlow(false),
     val recyclerSearchResults: MutableStateFlow<RecyclerComponent> = MutableStateFlow(RecyclerComponent()),
-    val searchTermText: MutableStateFlow<String> = MutableStateFlow("")
+    val searchTermText: MutableStateFlow<String> = MutableStateFlow(""),
+    val hasToShowBottomSheet: MutableStateFlow<Boolean> = MutableStateFlow(false)
 )

@@ -7,29 +7,31 @@ import coil.load
 import com.miguelbrmfreitas.domain.entities.SearchResult
 import com.miguelbrmfreitas.itunes_searcher.R
 import com.miguelbrmfreitas.itunes_searcher.databinding.ItemSearchResultBinding
+import com.miguelbrmfreitas.itunes_searcher.ui.main.listeners.IResultClickListener
+import com.miguelbrmfreitas.itunes_searcher.ui.util.extensions.createCircularProgressDrawable
 
 class SearchResultViewHolder (
-    val view: ItemSearchResultBinding
+    val view: ItemSearchResultBinding,
+    private val clickListener: IResultClickListener
 ) : RecyclerView.ViewHolder(view.root)
 {
     fun bind(searchResult: SearchResult) {
+
         view.apply {
+            val context = root.context
+            val circularProgressDrawable = context.createCircularProgressDrawable()
+
             artistName = searchResult.artistName
             trackName = searchResult.trackName
 
             ivCover.load(searchResult.imageCoverUrl) {
-                placeholder(createCircularProgressDrawable(root.context))
+                placeholder(circularProgressDrawable)
                 error(R.drawable.ic_song_placeholder)
             }
+
+            itemView.setOnClickListener {
+                clickListener.onResultClicked(searchResult)
+            }
         }
-    }
-
-    private fun createCircularProgressDrawable(context: Context): CircularProgressDrawable {
-        val circularProgressDrawable = CircularProgressDrawable(context)
-        circularProgressDrawable.strokeWidth = 5f
-        circularProgressDrawable.centerRadius = 30f
-        circularProgressDrawable.start()
-
-        return circularProgressDrawable
     }
 }
