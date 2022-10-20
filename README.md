@@ -1,6 +1,10 @@
 # iTunes Searcher
 Android app to search for artists, albums or tracks and get a list of related songs using the [iTunes Searcher API](https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/iTuneSearchAPI/Searching.html#//apple_ref/doc/uid/TP40017632-CH5-SW1). Each song may be clicked for further details.
 
+
+<video src="https://user-images.githubusercontent.com/6539610/196914924-6cbdc0c1-9a8b-4709-b254-d998d4a35ff5.mp4"> </video/
+
+
 ## Technical Design
 The high level app architecture looks like this. It's inspired by [Uncle Bob's Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) + [MVVM](https://developer.android.com/topic/architecture), although not totally by the book. Each layer is an separate module on the project. It may seem overkill at first, but the app was made so it can grow easily keeping separation of concerns, reusability and quality of code. The domain is the inner module and accessed by app and data modules. The app module works as the presentation layer and sees the domain and data modules. The app module is the application entrypoint and set the Dependency Injection.
 
