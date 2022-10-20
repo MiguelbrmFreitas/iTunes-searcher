@@ -73,13 +73,9 @@ The app module is the starting point to the app and works as the presentation la
 
 - [ ] Create a embedded player to play the 30-second song from previewUrl property  
 
-- [ ] Handle API errors 
+- [ ] Map API errors 
 
-- [ ] Put additional configuration at BaseViewModel and its startView method implementation
-
-- [ ] Room Database to persist data locally
-
-- [ ] Write unit tests
+- [ ] Enhance test coverage
 
 ## 📃 License
 
