@@ -42,13 +42,15 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@id/iv_cover"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 android:text="@{searchResult.trackName}"
                 android:id="@+id/tv_track_name"
-                android:layout_marginStart="@dimen/margin_default"
+                android:layout_marginHorizontal="@dimen/margin_default"
                 tools:text="Hips Don't Lie"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:layout_marginTop="@dimen/margin_default"
+                android:textAlignment="center"
                 />
 
             <TextView
@@ -56,11 +58,14 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@id/tv_album_name"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:textAlignment="center"
                 android:text="@{searchResult.artistName}"
                 android:id="@+id/tv_artist_name"
-                android:layout_marginStart="@dimen/margin_default"
+                android:layout_marginHorizontal="@dimen/margin_default"
                 tools:text="Shakira"
                 android:textSize="18sp"
+                android:textColor="@color/black"
                 android:layout_marginTop="@dimen/half_margin_default"
                 />
 
@@ -132,12 +137,14 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@id/tv_track_name"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 android:id="@+id/tv_album_name"
                 android:text="@{searchResult.albumName}"
                 android:textSize="18sp"
-                android:layout_marginStart="@dimen/margin_default"
+                android:layout_marginHorizontal="@dimen/margin_default"
                 tools:text="Live from Paris"
                 android:layout_marginTop="@dimen/half_margin_default"
+                android:textAlignment="center"
                 />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

@@ -54,6 +54,9 @@
                 android:textStyle="bold"
                 android:id="@+id/tv_track_name"
                 android:text="@{trackName}"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:maxEms="15"
                 />
 
             <TextView
