@@ -4,4 +4,7 @@
     <string name="search_hint">Search for a track, artist or album…</string>
 
     <string name="release_date_title">Release date: </string>
+    <string name="results_title">Showing %d results</string>
+
+    <string name="empty_state_title">Your search returned no results. Try searching again</string>
 </resources>

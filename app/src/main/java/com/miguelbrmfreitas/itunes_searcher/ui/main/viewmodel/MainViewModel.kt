@@ -30,21 +30,26 @@ class MainViewModel(
                 is CustomResponse.Success -> {
                     response.data.let { searchResultsList ->
                         mainViewModelState.apply {
-                            recyclerSearchResults.value = RecyclerComponent(
-                                adapter = searchResultListAdapter
-                            )
-
                             isProgressVisible.value = false
-                            isRecyclerVisible.value = true
+
+                            resultsCount.value = searchResultsList.size
+                            if (searchResultsList.isNotEmpty()) {
+                                recyclerSearchResults.value = RecyclerComponent(
+                                    adapter = searchResultListAdapter
+                                )
+                                setEmptyState(false)
+                                searchResultListAdapter.searchResultList = searchResultsList
+
+                            } else {
+                                setEmptyState(true)
+                            }
                         }
 
-                        searchResultListAdapter.searchResultList = searchResultsList
                     }
                 }
                 is CustomResponse.Failure -> {
                     mainViewModelState.isProgressVisible.value = false
-
-                    //TODO: Implement error handling
+                    setEmptyState(true)
                 }
             }
 
@@ -57,7 +62,7 @@ class MainViewModel(
 
             if (searchTerm.isNotEmpty()) {
                 isProgressVisible.value = true
-                isRecyclerVisible.value = false
+                isShowingResults.value = false
                 getSearchResults(searchTerm)
             }
         }
@@ -66,5 +71,12 @@ class MainViewModel(
     override fun onResultClicked(searchResult: SearchResult) {
         selectedResult = searchResult
         mainViewModelState.hasToShowBottomSheet.value = true
+    }
+
+    private fun setEmptyState(hasToShowEmptyState: Boolean) {
+        mainViewModelState.apply {
+            isShowingResults.value = !hasToShowEmptyState
+            isEmptyStateVisible.value = hasToShowEmptyState
+        }
     }
 }

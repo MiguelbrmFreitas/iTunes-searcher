@@ -74,7 +74,23 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:visibility="@{viewModel.mainViewModelState.isShowingResults? View.VISIBLE : View.GONE}"
+                android:id="@+id/cl_results"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginTop="@dimen/margin_default"
+                    android:layout_marginStart="@dimen/margin_default"
+                    android:id="@+id/tv_results"
+                    android:text="@{@string/results_title(viewModel.mainViewModelState.resultsCount)}"
+                    tools:text="@string/results_title"
+                    android:textStyle="bold"
+                    />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerView"
@@ -82,10 +98,10 @@
                     android:layout_height="wrap_content"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_results"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:bindRecycler="@{viewModel.mainViewModelState.recyclerSearchResults}"
                     tools:listitem="@layout/item_search_result"
-                    android:visibility="@{viewModel.mainViewModelState.isRecyclerVisible? View.VISIBLE : View.GONE}"
                     />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -100,6 +116,22 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_empty_state"
+            android:textAlignment="center"
+            android:visibility="@{viewModel.mainViewModelState.isEmptyStateVisible? View.VISIBLE : View.GONE}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@string/empty_state_title"
+            android:textSize="20sp"
+            android:paddingHorizontal="@dimen/margin_default"
+            tools:visibility="gone"
             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

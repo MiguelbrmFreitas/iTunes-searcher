@@ -8,5 +8,7 @@ data class MainViewModelState(
     val recyclerSearchResults: MutableStateFlow<RecyclerComponent> = MutableStateFlow(RecyclerComponent()),
     val searchTermText: MutableStateFlow<String> = MutableStateFlow(""),
     val hasToShowBottomSheet: MutableStateFlow<Boolean> = MutableStateFlow(false),
-    val isRecyclerVisible: MutableStateFlow<Boolean> = MutableStateFlow(false)
+    val isShowingResults: MutableStateFlow<Boolean> = MutableStateFlow(false),
+    val isEmptyStateVisible: MutableStateFlow<Boolean> = MutableStateFlow(false),
+    val resultsCount: MutableStateFlow<Int> = MutableStateFlow(0)
 )
