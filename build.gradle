@@ -26,6 +26,7 @@ buildscript {
         koin_version = "3.2.0"
         lifecycle_version = "2.5.1"
         coroutines_version = "1.6.1"
+        coroutines_test_version = "1.6.4"
         coroutines_adapter_version = "0.9.2"
         core_ktx_test_version = "1.4.0"
     }

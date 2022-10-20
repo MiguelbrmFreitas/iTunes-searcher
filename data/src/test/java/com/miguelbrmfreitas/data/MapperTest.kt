@@ -7,11 +7,7 @@ import org.junit.Test
 
 import org.junit.Assert.*
 import org.junit.Before
-import org.junit.runner.RunWith
-import org.mockito.Mock
-import org.mockito.junit.MockitoJUnitRunner
 
-@RunWith(MockitoJUnitRunner::class)
 class MapperTest {
 
     companion object {
@@ -29,7 +25,7 @@ class MapperTest {
         // How the RELEASE_DATE above should be formatted
         const val VALID_FORMATTED_DATE = "Jul 10, 2009"
 
-        // How the created date object should store de values from RELEASE_DATE
+        // How the created LocalDateTime object should store values converted from RELEASE_DATE
         const val VALID_YEAR = 2009
         const val VALID_MONTH = 7
         const val VALID_DAY_OF_MONTH = 10
