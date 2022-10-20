@@ -2,7 +2,7 @@
 Android app to search for artists, albums or tracks and get a list of related songs using the [iTunes Searcher API](https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/iTuneSearchAPI/Searching.html#//apple_ref/doc/uid/TP40017632-CH5-SW1). Each song may be clicked for further details.
 
 
-<video src="https://user-images.githubusercontent.com/6539610/196914924-6cbdc0c1-9a8b-4709-b254-d998d4a35ff5.mp4"> </video/
+<video src="https://user-images.githubusercontent.com/6539610/196914924-6cbdc0c1-9a8b-4709-b254-d998d4a35ff5.mp4"> </video>
 
 
 ## Technical Design
