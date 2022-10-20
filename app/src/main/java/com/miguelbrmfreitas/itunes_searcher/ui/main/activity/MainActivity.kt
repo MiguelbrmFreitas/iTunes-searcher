@@ -5,7 +5,6 @@ import android.view.View
 import androidx.lifecycle.viewModelScope
 import com.miguelbrmfreitas.itunes_searcher.BR
 import com.miguelbrmfreitas.itunes_searcher.R
-import com.miguelbrmfreitas.itunes_searcher.databinding.ActivityMainBinding
 import com.miguelbrmfreitas.itunes_searcher.ui.base.BaseActivity
 import com.miguelbrmfreitas.itunes_searcher.ui.main.fragment.TrackDetailsBottomSheetFragment
 import com.miguelbrmfreitas.itunes_searcher.ui.main.viewmodel.MainViewModel
@@ -41,17 +40,20 @@ class MainActivity : BaseActivity<MainViewModel>() {
     }
 
     private fun observeFields() {
-        viewModel.viewModelScope.launch {
-            viewModel.mainViewModelState.hasToShowBottomSheet.
-                collectLatest {
-                    if (it) {
-                        createBottomSheetDialog()
+        viewModel.apply {
+            viewModelScope.launch {
+                mainViewModelState
+                    .hasToShowBottomSheet
+                    .collectLatest {
+                        if (it) {
+                            showBottomSheetDialog()
+                        }
                     }
-                }
+            }
         }
     }
 
-    private fun createBottomSheetDialog() {
+    private fun showBottomSheetDialog() {
         val searchResult = viewModel.selectedResult
         if (searchResult != null) {
             bottomSheetFragment = TrackDetailsBottomSheetFragment(searchResult)

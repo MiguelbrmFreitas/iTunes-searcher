@@ -19,7 +19,7 @@ class GetResultsUseCase (private val repository: ItunesSearcherRepository)
         limit: Int = RESULTS_LIMIT
     ) =
         repository.getSearchResults(
-            searchTerm.replaceSpaces(),
+            searchTerm,
             mediaType,
             entity,
             limit

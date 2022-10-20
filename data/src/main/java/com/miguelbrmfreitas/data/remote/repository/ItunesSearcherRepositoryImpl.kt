@@ -23,6 +23,7 @@ class ItunesSearcherRepositoryImpl (private val service: ItunesSearcherService) 
 
             if (response.isSuccessful) {
                 response.body()?.results?.let { searchResultsResponse ->
+                    // Convert network entities to domain entities
                     val searchResultList = searchResultsResponse.map {
                         it.toDomainEntity()
                     }

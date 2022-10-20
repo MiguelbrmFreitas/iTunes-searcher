@@ -1,6 +1,7 @@
 package com.miguelbrmfreitas.domain.util.extensions
 
 import java.text.SimpleDateFormat
+import java.time.LocalDateTime
 import java.time.OffsetDateTime
 import java.time.format.DateTimeFormatter
 import java.util.*
@@ -12,9 +13,9 @@ fun String.replaceSpaces(): String {
     return replace(' ', '+')
 }
 
-fun String.toDate(): Date {
-    val format = SimpleDateFormat(API_DATE_PATTERN, Locale.US)
-    return format.parse(this)
+fun String.toDate(): LocalDateTime {
+    val formatter = DateTimeFormatter.ofPattern(API_DATE_PATTERN)
+    return LocalDateTime.parse(this, formatter)
 }
 
 fun String.toFormattedDate(): String {
